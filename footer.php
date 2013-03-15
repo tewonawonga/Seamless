@@ -1,7 +1,5 @@
 			<?php get_sidebar( 'primary' ); // Loads the sidebar-primary.php template. ?>
 
-			<?php get_sidebar( 'secondary' ); // Loads the sidebar-secondary.php template. ?>
-
 		</div><!-- #main -->
 
 		<?php get_sidebar( 'subsidiary' ); // Loads the sidebar-subsidiary.php template. ?>

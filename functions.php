@@ -20,7 +20,7 @@
  *
  * @package    Seamless
  * @subpackage Functions
- * @version    0.1.0
+ * @version    0.2.0
  * @since      0.1.0
  * @author     James Geiger <james@seamlessthemes.com>
  * @copyright  Copyright (c) 2013, James Geiger
@@ -127,7 +127,7 @@ function seamless_theme_setup() {
 	);
 
 	/* Handle content width for embeds and images. */
-	hybrid_set_content_width( 1280 );
+	hybrid_set_content_width( 1040 );
 
 	/* Enqueue scripts (and related stylesheets) */
 	add_action( 'wp_enqueue_scripts', 'seamless_scripts' );
@@ -251,70 +251,68 @@ function seamless_scripts() {
 
 }
 
-	/**
-	 * Function for deciding which pages should have a one-column layout.
-	 *
-	 * @since  0.1.0
-	 * @access public
-	 * @return void
-	 */
-	function seamless_one_column() {
+/**
+ * Function for deciding which pages should have a one-column layout.
+ *
+ * @since  0.1.0
+ * @access public
+ * @return void
+ */
+function seamless_one_column() {
 
-		if ( !is_active_sidebar( 'primary' ) )
-			add_filter( 'theme_mod_theme_layout', 'seamless_theme_layout_one_column' );
+	if ( !is_active_sidebar( 'primary' ) )
+		add_filter( 'theme_mod_theme_layout', 'seamless_theme_layout_one_column' );
 
-		elseif ( is_attachment() && wp_attachment_is_image() && 'default' == get_post_layout( get_queried_object_id() ) )
-			add_filter( 'theme_mod_theme_layout', 'seamless_theme_layout_one_column' );
+	elseif ( is_attachment() && wp_attachment_is_image() && 'default' == get_post_layout( get_queried_object_id() ) )
+		add_filter( 'theme_mod_theme_layout', 'seamless_theme_layout_one_column' );
 
-		elseif ( is_post_type_archive( 'portfolio_item' ) || is_tax( 'portfolio' ) )
-			add_filter( 'theme_mod_theme_layout', 'seamless_theme_layout_one_column' );
-	}
+}
 
-	/**
-	 * Filters 'get_theme_layout' by returning 'layout-1c'.
-	 *
-	 * @since  0.1.0
-	 * @param  string $layout The layout of the current page.
-	 * @return string
-	 */
-	function seamless_theme_layout_one_column( $layout ) {
-		return '1c';
-	}
+/**
+ * Filters 'get_theme_layout' by returning 'layout-1c'.
+ *
+ * @since  0.1.0
+ * @param  string $layout The layout of the current page.
+ * @return string
+ */
+function seamless_theme_layout_one_column( $layout ) {
+	return '1c';
+}
 
 
-	/**
-	 * Disables sidebars if viewing a one-column page.
-	 *
-	 * @since  0.1.0
-	 * @param  array $sidebars_widgets A multidimensional array of sidebars and widgets.
-	 * @return array $sidebars_widgets
-	 */
+/**
+ * Disables sidebars if viewing a one-column page.
+ *
+ * @since  0.1.0
+ * @param  array $sidebars_widgets A multidimensional array of sidebars and widgets.
+ * @return array $sidebars_widgets
+ */
 
-	function seamless_disable_sidebars( $sidebars_widgets ) {
-		global $wp_customize;
+function seamless_disable_sidebars( $sidebars_widgets ) {
+	global $wp_customize;
 
-		$customize = ( is_object( $wp_customize ) && $wp_customize->is_preview() ) ? true : false;
+	$customize = ( is_object( $wp_customize ) && $wp_customize->is_preview() ) ? true : false;
 
-		if ( !is_admin() && !$customize && '1c' == get_theme_mod( 'theme_layout' ) )
-			$sidebars_widgets['primary'] = false;
+	if ( !is_admin() && !$customize && '1c' == get_theme_mod( 'theme_layout' ) )
+		$sidebars_widgets['primary'] = false;
 
-		return $sidebars_widgets;
-	}
+	return $sidebars_widgets;
+}
 
-	/**
-	 * Wraps embeds with <div class="embed-wrap"> to help in making videos responsive.
-	 *
-	 * @since  0.1.0
-	 * @access public
-	 * @return void
-	 * @author Justin Tadlock <justin@justintadlock.com>
-	 */
-	function seamless_embed_html( $html ) {
+/**
+ * Wraps embeds with <div class="embed-wrap"> to help in making videos responsive.
+ *
+ * @since  0.1.0
+ * @access public
+ * @return void
+ * @author Justin Tadlock <justin@justintadlock.com>
+ */
+function seamless_embed_html( $html ) {
 
-		if ( in_the_loop() && has_post_format( 'video' ) && preg_match( '/(<embed|object|iframe)/', $html ) )
-			$html = '<div class="embed-wrap">' . $html . '</div>';
+	if ( in_the_loop() && has_post_format( 'video' ) && preg_match( '/(<embed|object|iframe)/', $html ) )
+		$html = '<div class="embed-wrap">' . $html . '</div>';
 
-		return $html;
-	}
+	return $html;
+}
 
 ?>

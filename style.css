@@ -1,11 +1,13 @@
 /**
- * Theme Name: Hybrid Base
+ * Theme Name: Seamless
  * Theme URI: http://seamlessthemes.com
- * Description: A description of your theme.
- * Tags: example
- * Version: 0.1.0
+ * Description: A responsive parent theme built on top of Hybrid Core for developers
+ * Tags: light, one-column, two-columns, right-sidebar, left-sidebar, flexible-width, custom-background, custom-menu, theme-options, threaded-comments, sticky-post, translation-ready
+ * Version: 0.2.0
  * Author: James Geiger
  * Author URI: http://seamlessthemes.com
+ * License: GNU General Public License v2.0
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
 /**
@@ -79,9 +81,9 @@ blockquote {
 
 	blockquote cite {
 		padding: 	  0 10px;
+		color: 		  #656565;
 		font-variant: small-caps;
 		font-style:   normal;
-		color: 		  #656565;
 	}
 
 /* === Acronyms and abbreviations === */
@@ -101,12 +103,12 @@ code {
 }
 
 pre {
-	word-wrap:   normal;
 	padding:     25px;
-	color:       #454545;
-	background:  #f5f5f5;
 	border:      1px solid #e5e5e5;
 	border-left: 5px solid #d5d5d5;
+	color:       #454545;
+	background:  #f5f5f5;
+	word-wrap:   normal;
 }
 
 
@@ -171,19 +173,18 @@ table {
 	}
 
 	th {
-		font-family:   'MuliRegular';
-		font-size:     0.9375rem;
-		font-weight:   normal;
 		border-bottom: 1px solid #e5e5e5;
 		border-right:  1px solid #e5e5e5;
+		font-size:     0.9375rem;
+		font-weight:   normal;
 		text-align:    left;
 	}
 
 	td {
-		color:         #656565;
-		background:    #f5f5f5;
 		border-bottom: 1px solid #e5e5e5;
 		border-right:  1px solid #e5e5e5;
+		color:         #656565;
+		background:    #f5f5f5;
 	}
 
 	/* wp-calendar */
@@ -235,8 +236,8 @@ button,
 input,
 select,
 textarea {
-	font-size: 100%; /* Corrects font size not being inherited in all browsers */
-	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
+	font-size: 		 100%; /* Corrects font size not being inherited in all browsers */
+	vertical-align:  baseline; /* Improves appearance and consistency in all browsers */
 	*vertical-align: middle; 
 }
 button,
@@ -309,6 +310,7 @@ textarea {
 	input[type="search"] {
 		padding: 9px 12px;;
 	}
+
 textarea {
 	overflow: 	  	auto; /* Removes default vertical scrollbar in IE9 */
 	padding-left: 	3px;
@@ -329,11 +331,10 @@ textarea {
 	margin-left: 1.5rem;
 }
 .aligncenter {
-	clear: 	 both;
 	display: block;
+	clear: 	 both;
 	margin:  0 auto;
 }
-
 
 /**
  * Images
@@ -393,14 +394,14 @@ img {
 	}
 
 		.wp-caption-text a {
+			border-bottom: 1px solid transparent;
 			font-style:    normal;
 			font-size:     1.125rem;
-			border-bottom: 1px solid transparent;
 		}
 
 		.wp-caption-text a:hover {
-			background:      #e5e5e5;
 			border-bottom:   1px solid #d5d5d5;
+			background:      #e5e5e5;
 			text-decoration: none;
 		}
 
@@ -485,11 +486,6 @@ li.comment .avatar {
 		margin:     auto;
 		background: white;
 	}
-
-		.layout-1c #container {}
-		.layout-2c-l #container {}
-		.layout-2c-r #container {}
-
 		#header {
 			margin: 2rem 0;
 		}
@@ -504,14 +500,19 @@ li.comment .avatar {
 
 		#main {}
 
-			#content {}
+			#content {
+				width: 100%;
+			}
 			
 			#sidebar-primary {
 			  width:   100%;
 			  padding: 25px 0 0 0;
 			}
 
-		#sidebar-subsidiary {}
+		/* Don't show on theme customizer. */
+		.layout-1c #sidebar-primary {
+			display: none;
+		}
 
 		#footer {
 			clear: both;
@@ -552,9 +553,9 @@ li.comment .avatar {
  * --------------------------------------------------------------------------- */
 
 	/*
-	 * The menus in this theme are located in the media queries. They are based on something
-	 * from http://justintadlock.com and the Shell theme by David Chandra.
-	 *
+	 * The menu in this theme is located in the media queries section. It is based on
+	 * something from Justin Tadlock's personal version of Chun (http://justintadlock.com) 
+	 * and the Shell theme by David Chandra (http://themehybrid.com/themes/shell).
 	 */
 
 /**
@@ -565,8 +566,8 @@ li.comment .avatar {
 
 .breadcrumb-trail {
 	padding:   0 0 25px 0;
-	font-size: 0.875rem;
 	color: 	   #c5c5c5;
+	font-size: 0.875rem;
 
 		-moz-box-sizing: border-box;
 	box-sizing:  border-box;
@@ -616,8 +617,8 @@ li.comment .avatar {
 
 	.entry-title {
 		word-wrap:  break-word;
-		font-size:  1.563rem;
 		color:      #050505;
+		font-size:  1.563rem;
 	}
 
 		.entry-title a {
@@ -729,34 +730,25 @@ li.comment .avatar {
 	}
 
 	.format-chat .chat-speaker-1 cite {
-		border-color: #111; 
-		color:        #111; 
+		border-color: #000000; 
+		color:        #000000; 
 	}
 	.format-chat .chat-speaker-2 cite {
-		border-color: #999;
-		color:        #999;  
+		border-color: #222222;
+		color:        #222222;  
 	}
 	.format-chat .chat-speaker-3 cite {
-		border-color: #999; 
-		color:        #999; 
+		border-color: #444444; 
+		color:        #444444; 
 	}
 	.format-chat .chat-speaker-4 cite { 
-		border-color: #D8270B; 
-		color:        #D8270B; 
+		border-color: #666666; 
+		color:        #666666; 
 	}
 	.format-chat .chat-speaker-5 cite { 
-		border-color: #00393e; 
-		color:        #00393e; 
+		border-color: #888888; 
+		color:        #888888; 
 	}
-	.format-chat .chat-speaker-6 cite { 
-		border-color: #005b64; 
-		color:        #005b64; 
-	}
-	.format-chat .chat-speaker-7 cite { 
-		border-color: #050505; 
-		color:        #050505; 
-	}
-
 
 	/* === Links === */
 
@@ -858,37 +850,8 @@ li.comment .avatar {
 /* ====== Attachment Meta (on image attachment pages) ====== */
 
 .attachment-meta .image-gallery {
-	width: 47.5%;
-	float: right;
+	width: 100%;
 }
-
-.attachment-meta .image-info {
-	width: 47.5%;
-	float: left;
-}
-
-	.image-info ul {
-		list-style-position: inside;
-		margin-left: 0;
-	}
-
-		.image-info ul li {
-			padding:       0 0 5px;
-			margin:        0 0 5px;
-			border-bottom: 1px dotted #d5d5d5;
-			font-size:     0.9375rem;
-		}
-
-			.image-info .prep {
-				font-variant: small-caps;
-			}
-
-			.image-info .image-data {
-				float:      right;
-				color:      #959595;
-				font-style: italic;
-			}
-
 
 /* ====== LOOP META ====== */
 
@@ -902,7 +865,7 @@ li.comment .avatar {
 
 	.loop-title {
 		font-size: 1.8rem;
-		color: #050505;
+		color: 	   #050505;
 	}
 
 	.loop-description {
@@ -969,7 +932,6 @@ li.comment .avatar {
 .loop-nav {
 	clear:       both;
 	margin:      0 0 50px;
-	/**font-family: 'MuliRegular';/**/
 }
 
 	.page-numbers,
@@ -1072,7 +1034,7 @@ li.comment .avatar {
 			border:      1px solid #d5d5d5;
 			background:  #efefef;
 			color:       #656565;
-			font-family: Georgia, Times, 'Times New Roman', serif;
+			font-family: Arial, sans-serif;
 			font-size:   1.0625rem;
 
 				-moz-box-sizing: border-box;
@@ -1085,8 +1047,8 @@ li.comment .avatar {
 
 		.widget-search input[type="text"]:focus {
 			border-color: #e5e5e5;
-			background:   #f5f5f5;
 			color:        #454545;
+			background:   #f5f5f5;
 		}
 
 /* ====== Specific ====== */
@@ -1095,67 +1057,66 @@ li.comment .avatar {
 
 /* Subsidiary sidebar */
 #sidebar-subsidiary {
-  overflow: hidden;
-  width: 100%;
-  margin: 0 auto;
-  padding: 25px 0 0 0;
+	overflow: hidden;
+	width:    100%;
+	margin:   0 auto;
+	padding:  25px 0 0 0;
 }
 	#sidebar-subsidiary .widget {
-	  float: left;
-	  width: 100%;
-	  margin: 0 0 2.5% 0;
-	  font-size: 0.938rem;
-	  color: #333;
+		float: 	   left;
+		width: 	   100%;
+		margin:    0 0 25px 0;
+		color: 	   #333;
+		font-size: 0.938rem;
 	}
-	#sidebar-subsidiary .widget ul {
-	  list-style: disc;
-	}
-		#sidebar-subsidiary .widget ul li a {
-		  color: #777;
-		  border-bottom: 1px dotted #bbb;
+		#sidebar-subsidiary .widget ul {
+			list-style: disc;
 		}
-		#sidebar-subsidiary .widget ul li a:hover {
-		  color: #000;
-		  border-bottom: 1px dotted #333;
-		  text-decoration: none;
-		}
-
+			#sidebar-subsidiary .widget ul li a {
+			 	border-bottom: 1px dotted #bbb;
+			 	color: 		   #777;
+			}
+			#sidebar-subsidiary .widget ul li a:hover {
+				border-bottom:   1px dotted #333;
+				color: 		     #000;
+				text-decoration: none;
+			}
 
 /**
  * Comments Template
  * --------------------------------------------------------------------------- */
 
 #comments {
-	position: relative;
-	margin: 0 0 50px;
-	padding: 40px 0px 25px 0px;
-	font-size: 1.0625rem;
-	background: #fff;
+	position:   relative;
+	margin:     0 0 25px;
+	padding:    40px 0px 25px 0px;
 	border-top: 5px solid #e5e5e5;
+	background: #fff;
+	font-size:  1.0625rem;
 }
 
 	/* === Comments closed message === */
 
 	.comments-closed {
 		padding:    25px 0 0;
+		border-top: 1px solid #e5e5e5;
 		font-style: italic;
 		color:      #959595;
 		text-align: center;
-		border-top: 1px solid #e5e5e5;
 	}
 
 	/* === Comment list === */
 
 	ol.comment-list {
+		margin: 	0 0 25px;
 		list-style: none;
-		margin: 0 0 25px;
 	}
 
 	ol.comment-list ol.children {
-		list-style:  none;
+		border-left: 1px solid #efefef;
 		margin:      -25px 0 0 25px;
 		padding:     25px 0 0 25px;
-		border-left: 1px solid #efefef;
+		list-style:  none;
 	}
 
 		/* === Individual comments */
@@ -1168,8 +1129,8 @@ li.comment .avatar {
 		li.ping {
 			margin:     0 0 25px;
 			padding:    25px 25px 0;
-			background: #f5f5f5;
 			border:     1px solid #efefef;
+			background: #f5f5f5;
 		}
 
 			/* === Avatars === */
@@ -1200,15 +1161,15 @@ li.comment .avatar {
 
 			.comment-text {
 				clear:     left;
-				word-wrap: break-word;
 				margin:    0 0 25px;
 				padding:   25px 25px 0 25px;
 				border:    1px solid #efefef;
+				word-wrap: break-word;
 			}
 
 			li.bypostauthor > .comment-text {
-				background:   #f5f5f5;
 				border-color: #e5e5e5;
+				background:   #f5f5f5;
 			}
 
 			/* === Reply link === */
@@ -1237,7 +1198,7 @@ li.comment .avatar {
 #respond {}
 
 	#reply-title small {
-		font-family: Georgia, Times, 'Times New Roman', serif;
+		font-family: Arial, sans-serif;
 		font-size:   1.0625rem;
 	}
 
@@ -1267,7 +1228,7 @@ li.comment .avatar {
 	#respond input[type="email"],
 	#respond input[type="submit"],
 	#respond textarea {
-		font-family: Georgia, Times, 'Times New Roman', serif;
+		font-family: Arial, sans-serif;
 		font-size:   1.0625rem;
 		color:       #656565;
 		background:  #e5e5e5;
@@ -1311,19 +1272,19 @@ li.comment .avatar {
 #footer {}
 
 	#footer .copyright {
-		float: left;
+		float: 		left;
 		text-align: center;
-		width: 100%;
-		padding: 0.938em 0;
-		margin: 0;
+		width: 		100%;
+		padding: 	0.938em 0;
+		margin: 	0;
 	}
 
 	#footer .credit {
-		float: left;
+		float: 		left;
 		text-align: center;
-		width: 100%;
-		padding: 0.938em 0;
-		margin: 0;
+		width: 		100%;
+		padding: 	0.938em 0;
+		margin: 	0;
 	}
 
 	#footer a {
@@ -1339,9 +1300,35 @@ li.comment .avatar {
 
 @media only screen and (min-width: 45em) {
 
+	/* ====== Layout ====== */
+
 	#container {
 		max-width: 1040px;
 	}
+	.layout-2c-l #content,
+	.layout-2c-r #content {
+		float: left;
+		width: 70%;
+	}
+
+	#sidebar-primary,
+	#sidebar-secondary {
+		width: 25%;
+	}
+		
+	.layout-2c-l #sidebar-primary {
+		float: right;
+	}
+
+	.layout-2c-r #content {
+		float: right;
+	}
+		.layout-2c-r #sidebar-primary {
+			float: left;
+		}
+
+	/* ====== Header ====== */
+
 	#site-title {
 		float: 		left;
 		text-align: left;
@@ -1351,19 +1338,23 @@ li.comment .avatar {
 		clear: 		left;
 		text-align: left;
 	}
-	#content {
-		float: left;
-		width: 70%;
+
+	/* ====== Respond/Comments  ====== */
+
+	#comments {
+		margin:     0 0 50px;
 	}
 
-	.layout-1c #content {
-		width: 100%;
+	#respond input[type="text"],
+	#respond input[type="password"],
+	#respond input[type="email"] {
+		display:   block;
+		width:     50%;
+		min-width: 400px;
+		padding:   10px 25px;
 	}
 
-	#sidebar-primary,
-	#sidebar-secondary {
-		width: 25%;
-	}
+	/* ====== Subsidiary sidebar ====== */
 
 	#sidebar-subsidiary .widget {
 		float: 	   left;
@@ -1375,27 +1366,8 @@ li.comment .avatar {
 		#sidebar-subsidiary .widget:last-child {
 			padding: 0;
 		}
-		
-	.layout-2c-l #sidebar-primary,
-	.layout-default #sidebar-primary {
-		float: right;
-	}
 
-	.layout-2c-r #content {
-		float: right;
-	}
-	.layout-2c-r #sidebar-primary {
-		float: left;
-	}
-
-	#respond input[type="text"],
-	#respond input[type="password"],
-	#respond input[type="email"] {
-		display:   block;
-		width:     50%;
-		min-width: 400px;
-		padding:   10px 25px;
-	}
+	/* ====== Footer ====== */
 
 	#footer .copyright {
 		float: 		left;
@@ -1461,8 +1433,8 @@ li.comment .avatar {
 
 		#menu-primary li {
 			position: relative;
-			float: left;
-			display: inline-block;
+			float: 	  left;
+			display:  inline-block;
 		}
 
 			#menu-primary li a {
@@ -1500,8 +1472,8 @@ li.comment .avatar {
 			}
 
 			#menu-primary ul ul li {
-				float: none;
 				display: block;
+				float: none;
 			}
 
 				#menu-primary ul ul li a {
@@ -1513,35 +1485,35 @@ li.comment .avatar {
 
 @media only screen and (max-width: 45em) {
 
+	/* ====== Primary Menu ====== */
+
 	#menu-primary {
 		text-align: center;
 	}
 	.menu-toggle {
-		position: relative;
-		display: inline-block;
-		cursor: pointer;
-		margin: 0 auto;
+		position:    relative;
+		display:     inline-block;
+		cursor:      pointer;
+		margin:      0 auto;
 		line-height: 21px;
-		/*text-indent: -9999em;*/
-		font-size: 0.9375rem;
+		font-size: 	 0.9375rem;
 	}
 	.menu-toggle:hover,
 	.menu-toggle.active {
-		color: #000;
-		text-decoration: underline;
+		color: 				 #000;
+		text-decoration: 	 underline;
 		background-position: 0 -21px;
 	}
 
 	#menu-primary .wrap {
+		position: 	relative;
+		z-index: 	999;
+		display: 	none; /* visibility will be toggled with jquery */
+		clear: 		both;
+		width: 		100%;
+		margin: 	15px auto 0;
+		padding: 	25px 25px 0 0;
 		text-align: left;
-		position: relative;
-		clear: both;
-		position: relative;
-		width: 100%;
-		margin: 15px auto 0;
-		padding: 25px 25px 0 0;
-		z-index: 999;
-		display: none; /* visibility will be toggled with jquery */
 	}
 
 }
@@ -1565,9 +1537,9 @@ li.comment .avatar {
 .loop-nav::after,
 li.comment::after, li.pingback::after, li.trackback::after,
 .gallery::after {
-	content: ".";
-	display: block;
-	height: 0;
-	clear: both;
+	content: 	".";
+	display: 	block;
+	height:  	0;
+	clear:   	both;
 	visibility: hidden;
 }
