@@ -84,7 +84,7 @@ function seamless_theme_setup() {
 	/* Enable theme layouts (need to add stylesheet support). */
 	add_theme_support( 
 		'theme-layouts', 
-		array( '1c', '2c-l', '2c-r' ), 
+		array( '1c', '2c-l', '2c-r' ),
 		array( 'default' => '1c', 'customizer' => true ) 
 	);
 

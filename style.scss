@@ -1,0 +1,39 @@
+/*!
+ * Theme Name: Seamless
+ * Theme URI: http://seamlessthemes.com
+ * Description: A responsive parent theme built on top of Hybrid Core for developers
+ * Tags: light, one-column, two-columns, right-sidebar, left-sidebar, flexible-width, custom-background, custom-menu, theme-options, threaded-comments, sticky-post, translation-ready
+ * Version: 0.2.0
+ * Author: James Geiger
+ * Author URI: http://seamlessthemes.com
+ * License: GNU General Public License v2.0
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ */
+
+// import mixins
+@import 'scss/mixins';
+
+// import base
+@import 'scss/base';
+
+@media only screen and (min-width: 768px) {
+
+    // styles in largebreak.scss
+    @import "scss/largebreak";
+
+} // end of media query
+
+@media only screen and (min-width: 480px) {
+
+    // styles in mediumbreak.scss
+    @import "scss/mediumbreak";
+
+} // end of media query
+
+
+// Print - Feel free to customize this.
+
+@media print {
+    @import "scss/print";
+}

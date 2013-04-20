@@ -1,0 +1,189 @@
+// ==========================================================================
+//
+// Stylesheet: Large Breakpoint
+//
+// ==========================================================================
+
+// Layout
+
+#container {
+    @include container;
+    max-width: 1140px;
+}
+
+.layout-2c-l #content {
+    @include span-columns(8, 12);
+}
+.layout-2c-r #content {
+    @include span-columns(8 omega, 12);
+}
+    
+.layout-2c-l #sidebar-primary {
+    @include span-columns(4 omega, 12);
+}
+.layout-2c-r #sidebar-primary {
+    @include span-columns(4, 12);
+}
+
+// Header
+
+#site-title {
+    float:      left;
+    text-align: left;
+}
+#site-description {
+    clear:      left;
+    float:      left;
+    text-align: left;
+}
+
+// Respond/Comments
+
+#comments {
+    margin:     0 0 3.125em;
+}
+.comment-text {
+    padding: 1.563em 1.563em 0 1.563em;
+}
+ol.comment-list ol.children {
+    margin:      -1.563em 0 0 1.563em;
+    padding:     1.563em 0 0 1.563em;
+}
+
+#respond input[type="text"],
+#respond input[type="password"],
+#respond input[type="email"] {
+    display:   block;
+    width:     50%;
+    min-width: 400px;
+    padding:   10px 1.563em;
+}
+
+//Subsidiary sidebar
+
+#sidebar-subsidiary .widget {
+    float:     left;
+    @include span-columns(3, 12);
+    color:     #333;
+    font-size: 0.875em;
+    &:first-child {
+        margin-right: 0;
+    }
+}
+
+// Footer
+
+#footer {
+    .copyright {
+        float:      left;
+        width:      49%;
+        text-align: left;
+    }
+    .credit {
+        float:      right;
+        width:      49%;
+        text-align: right;
+    }
+}
+
+// Primary Menu
+
+.menu-toggle {
+    display: none;
+}
+
+#menu-primary ul {
+    list-style: none;
+    margin:     0;
+    text-align: center;
+}
+
+#menu-primary .menu-items {
+    zoom: 1;
+}
+
+#menu-primary .menu-items::before,
+#menu-primary .menu-items::after {
+    content: "";
+    display: table;
+}
+
+#menu-primary .menu-items::after {
+    clear: both;
+}
+
+#menu-primary .menu-items > ul {
+    width:  100%;
+    margin: 60px auto;
+}
+
+#menu-primary ul ul {
+    position:   absolute;
+    z-index:    1;
+    top:        48px;
+    visibility: hidden;
+    margin:     20px 0 0;
+    text-align: left;
+}
+
+#menu-primary li:hover > ul {
+    visibility: visible;
+    margin:     0;
+}
+
+#menu-primary ul ul ul {
+    top:    0;
+    left:   230px;
+    margin: 0 0 0 20px;
+}
+
+#menu-primary li {
+    position: relative;
+    float:    left;
+    display:  inline-block;
+}
+
+#menu-primary li a {
+    display:         inline-block;
+    padding:         12px 20px;
+    border-bottom:   none;
+    color:           #444444;
+    text-decoration: none;
+}
+
+#menu-primary li a:hover, 
+#menu-primary li:hover > a {
+    background: #d5d5d5;
+}
+#menu-primary li a:hover,
+#menu-primary li:hover > a,
+#menu-primary li.current-menu-item > a {
+    color: #222222;
+}
+
+#menu-primary li li.current-menu-item > a {
+    color: #000000;
+}
+
+#menu-primary li li a {
+    background: #d5d5d5;
+    color:      #000000;
+    font-size:  1rem;
+}
+
+#menu-primary li li a:hover,
+#menu-primary li li:hover > a {
+    background: #c5c5c5;
+    color:      #000000;
+}
+
+#menu-primary ul ul li {
+    display: block;
+    float: none;
+}
+
+#menu-primary ul ul li a {
+    display: block;
+    float:   none;
+    width:   190px;
+}
