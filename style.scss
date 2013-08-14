@@ -12,28 +12,33 @@
  */
 
 // import mixins
-@import 'scss/mixins';
+@import 'sass/mixins';
 
 // import base
-@import 'scss/base';
+@import 'sass/base';
 
-@media only screen and (min-width: 768px) {
+// import mobilemenu
+@import 'sass/mobilemenu';
 
-    // styles in largebreak.scss
-    @import "scss/largebreak";
-
-} // end of media query
+// import ie specific styles
+@import 'sass/ie';
 
 @media only screen and (min-width: 480px) {
 
     // styles in mediumbreak.scss
-    @import "scss/mediumbreak";
+    @import "sass/mediumbreak";
 
 } // end of media query
 
+@media only screen and (min-width: 768px) {
+
+    // styles in largebreak.scss
+    @import "sass/largebreak";
+
+} // end of media query
 
 // Print - Feel free to customize this.
 
 @media print {
-    @import "scss/print";
+    //@import "sass/print";
 }

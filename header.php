@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" dir="ltr" lang="en-US"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" dir="ltr" lang="en-US"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" dir="ltr" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en-US">
+<!--<![endif]-->
 <html <?php language_attributes(); ?>>
 
 <head>
@@ -18,17 +24,23 @@
 
 		<header id="header">
 
+			<div class="wrap">
+
 				<hgroup id="branding">
 					<h1 id="site-title"><a href="<?php echo home_url(); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 					<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
 				</hgroup><!-- #branding -->
 
+				<?php if ( get_header_image() ) echo '<img class="header-image" src="' . esc_url( get_header_image() ) . '" alt="" />'; ?>
+
+				<?php get_template_part( 'menu', 'primary' ); // Loads the menu-primary.php template. ?>
+
+			</div>
+
 		</header><!-- #header -->
-
-		<?php if ( get_header_image() ) echo '<img class="header-image" src="' . esc_url( get_header_image() ) . '" alt="" />'; ?>
-
-		<?php get_template_part( 'menu', 'primary' ); // Loads the menu-primary.php template. ?>
 
 		<div id="main">
 
-			<?php if ( current_theme_supports( 'breadcrumb-trail' ) ) breadcrumb_trail( array( 'container' => 'nav', 'separator' => '>', 'before' => __( 'You are here:', 'seamless' ) ) ); ?>
+			<div class="wrap">
+
+				<?php if ( current_theme_supports( 'breadcrumb-trail' ) ) breadcrumb_trail( array( 'container' => 'nav', 'separator' => '>', 'before' => __( 'You are here:', 'seamless' ) ) ); ?>

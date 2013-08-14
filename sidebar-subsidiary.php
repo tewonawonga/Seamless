@@ -2,7 +2,11 @@
 
 	<aside id="sidebar-subsidiary" class="sidebar">
 
-		<?php dynamic_sidebar( 'subsidiary' ); ?>
+		<div class="wrap">
+
+			<?php dynamic_sidebar( 'subsidiary' ); ?>
+
+		</div>
 
 	</aside><!-- #sidebar-subsidiary .aside -->
 

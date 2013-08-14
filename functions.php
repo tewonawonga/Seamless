@@ -20,7 +20,7 @@
  *
  * @package    Seamless
  * @subpackage Functions
- * @version    0.2.0
+ * @version    0.3.0
  * @since      0.1.0
  * @author     James Geiger <james@seamlessthemes.com>
  * @copyright  Copyright (c) 2013, James Geiger
@@ -118,7 +118,20 @@ function seamless_theme_setup() {
 	/* Add support for a custom header image. */
 	add_theme_support(
 		'custom-header',
-		array( 'header-text' => false ) );
+		array(  'header-text' => false, 
+				'default-image' => '',
+				'random-default' => false,
+				'width' => 1140,
+				'height' => 0,
+				'flex-height' => false,
+				'flex-width' => false,
+				'default-text-color' => '',
+				'header-text' => true,
+				'uploads' => true,
+				'wp-head-callback' => '',
+				'admin-head-callback' => '',
+				'admin-preview-callback' => '',
+	) );
 
 	/* Custom background. */
 	add_theme_support( 
@@ -127,7 +140,7 @@ function seamless_theme_setup() {
 	);
 
 	/* Handle content width for embeds and images. */
-	hybrid_set_content_width( 1040 );
+	hybrid_set_content_width( 742 );
 
 	/* Enqueue scripts (and related stylesheets) */
 	add_action( 'wp_enqueue_scripts', 'seamless_scripts' );
@@ -278,7 +291,6 @@ function seamless_one_column() {
 function seamless_theme_layout_one_column( $layout ) {
 	return '1c';
 }
-
 
 /**
  * Disables sidebars if viewing a one-column page.
