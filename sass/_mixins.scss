@@ -1,0 +1,81 @@
+/**
+ * Mixins and Constants
+ * --------------------------------------------------------------------------- */
+
+
+// Clearing Floats
+// ==========================================================================
+
+.wrap:after, #container:after, #header:after, 
+#branding:after, #menu-primary:after, #main:after, 
+#footer:after, .widget:after, .hentry:after,
+.entry-summary:after, .entry-content:after, .attachment-meta:after, 
+.loop-meta:after, .loop-nav:after, .gallery:after,
+li.comment:after, li.pingback:after, li.trackback:after {
+    content:    ".";
+    display:    block;
+    height:     0;
+    clear:      both;
+    visibility: hidden;
+}
+
+// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+.ir {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+// Colors
+// ==========================================================================
+
+$black: #000000;
+$white: #ffffff;
+
+$link-color: #999999;
+$link-hover: darken($link-color, 9%);
+
+
+// Typography
+// ==========================================================================
+
+$sans-serif: Arial, sans-serif;
+$serif: Georgia, serif;
+
+
+// Embed your own fonts below this line
+// ==========================================================================
+
+
+// Transitions
+// ==========================================================================
+
+// You'll need to be using Sass 3.2+ for these to work.
+// USAGE: @include transition(all 0.2s ease-in-out);
+
+@mixin transition($transition...) {
+	// defining prefixes so we can use them in mixins below
+	$prefixes:      ("-webkit", "-ms", "-o",  "");
+  @each $prefix in $prefixes {
+    #{$prefix}-transition: $transition;
+  }
+
+  transition: $transition;
+}
+
+// CSS3 Gradients
+// ==========================================================================
+
+// Be careful with these since they can
+// really slow down your CSS. Don't overdo it.
+
+// USAGE: @include css-gradient(#efefef,#f5f5f5);
+
+@mixin css-gradient($from: #efefef, $to: #f5f5f5) {
+	background-color: $to;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background-image: -webkit-linear-gradient(top, $from, $to);
+	background-image: -moz-linear-gradient(top, $from, $to);
+	background-image: -o-linear-gradient(top, $from, $to);
+	background-image: linear-gradient(to bottom, $from, $to);
+}

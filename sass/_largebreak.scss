@@ -1,0 +1,75 @@
+/**
+ * Large breakpoint
+ * --------------------------------------------------------------------------- */
+
+// Layout
+
+.wrap {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.layout-2c-l #content {
+    @include span-columns(8, 12);
+}
+.layout-2c-r #content {
+    @include span-columns(8 omega, 12);
+}
+    
+.layout-2c-l #sidebar-primary {
+    @include span-columns(4 omega, 12);
+}
+.layout-2c-r #sidebar-primary {
+    @include span-columns(4, 12);
+}
+
+// Respond/Comments
+
+#comments {
+    margin: 0 0 3.125em;
+}
+.comment-text {
+    padding: 1.563em 1.563em 0 1.563em;
+}
+ol.comment-list ol.children {
+    margin: -1.563em 0 0 1.563em;
+    padding: 1.563em 0 0 1.563em;
+}
+
+#respond {
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        display: block;
+        width: 50%;
+        min-width: 400px;
+        padding: 10px 1.563em;
+    }
+}
+
+// Subsidiary sidebar
+
+#sidebar-subsidiary .widget {
+    float: left;
+    @include span-columns(3, 12);
+    color: #333;
+    font-size: 0.875em;
+    &:first-child {
+        margin-right: 0;
+    }
+}
+
+// Footer
+
+#footer {
+    .copyright {
+        float: left;
+        width: 49%;
+        text-align: left;
+    }
+    .credit {
+        float: right;
+        width: 49%;
+        text-align: right;
+    }
+}

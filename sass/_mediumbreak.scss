@@ -1,0 +1,92 @@
+/**
+ * Medium breakpoint
+ * --------------------------------------------------------------------------- */
+
+// Hide mobile menu
+
+.menu-toggle {
+    display: none;
+}
+
+// Navigation Styles - largely taken from the Bones theme by Eddie Machado because
+// I was too lazy to sassify my own menu's CSS ;)
+
+.menu {
+    background: #eee;
+    border: 0;
+    ul {
+        margin: 0;
+        list-style: none;
+    }
+    li {
+        float: left;
+        position: relative;
+        a {
+            display: block;
+            text-decoration: none;
+            padding: 10px 10px;
+            /*
+            you can use hover styles here even though this size
+            has the possibility of being a mobile device.
+            */
+            &:hover, &:focus {
+                background-color: #dedede;
+            }
+        }
+        &:first-child {}
+        &:last-child {}
+        /*
+        plan your menus and drop-downs wisely.
+        */
+        ul.sub-menu,
+        ul.children {
+            margin-top: 0;
+            position: absolute;
+            display: none;
+            z-index: 8999;
+            li {
+                a {
+                    padding-left: 10px;
+                    border-right: 0;
+                    display: block;
+                    width: 180px;
+                    background-color: #eee;
+                    &:hover,
+                    &:focus {
+                        background-color: #dedede;
+                    }
+                    &:link {}
+                }
+                &:first-child {}
+                &:last-child {
+                    a {
+                        border-bottom: 0;
+                    }
+                }
+                /*
+                if you need to go deeper, go nuts
+                just remember deeper menus suck
+                for usability.
+                */
+                ul {}
+            }
+            /* highlight sub-menu current page */
+            li.current-menu-item,
+            li.current_page_item,
+            li.current-page-ancestor {
+                a {}
+            }
+        }
+        /* showing sub-menus */
+        &:hover ul {
+            top: auto;
+            display: block;
+        }
+    } /* end .menu ul li */
+    /* highlight current page */
+    li.current-menu-item,
+    li.current_page_item,
+    li.current-page-ancestor {
+        a {}
+    }  /* end current highlighters */
+} /* end .nav */
