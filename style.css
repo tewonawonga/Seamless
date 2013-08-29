@@ -1509,7 +1509,7 @@ li.bypostauthor > .comment-text {
     font-size: 0.875em;
   }
   /* line 57, sass/_largebreak.scss */
-  #sidebar-subsidiary .widget:first-child {
+  #sidebar-subsidiary .widget:last-child {
     margin-right: 0;
   }
 

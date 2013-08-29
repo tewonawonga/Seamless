@@ -22,8 +22,6 @@
 			<?php the_title( '<h2 class="entry-title"><a href="' . get_permalink() . '">', '</a></h2>' ); ?>
 		</header><!-- .entry-header -->
 
-		<?php echo ( $video = post_format_tools_get_video() ); ?>
-
 		<?php if ( has_excerpt() ) { ?>
 
 			<div class="entry-summary">

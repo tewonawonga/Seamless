@@ -31,8 +31,6 @@
 					<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
 				</hgroup><!-- #branding -->
 
-				<?php if ( get_header_image() ) echo '<img class="header-image" src="' . esc_url( get_header_image() ) . '" alt="" />'; ?>
-
 				<?php get_template_part( 'menu', 'primary' ); // Loads the menu-primary.php template. ?>
 
 			</div>

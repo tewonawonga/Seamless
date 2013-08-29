@@ -115,24 +115,6 @@ function seamless_theme_setup() {
 		array( 'aside', 'audio', 'chat', 'image', 'gallery', 'link', 'quote', 'status', 'video' ) 
 	);
 
-	/* Add support for a custom header image. */
-	add_theme_support(
-		'custom-header',
-		array(  'header-text' => false, 
-				'default-image' => '',
-				'random-default' => false,
-				'width' => 1140,
-				'height' => 0,
-				'flex-height' => false,
-				'flex-width' => false,
-				'default-text-color' => '',
-				'header-text' => true,
-				'uploads' => true,
-				'wp-head-callback' => '',
-				'admin-head-callback' => '',
-				'admin-preview-callback' => '',
-	) );
-
 	/* Custom background. */
 	add_theme_support( 
 		'custom-background',
@@ -153,102 +135,8 @@ function seamless_theme_setup() {
 	add_filter( 'sidebars_widgets', 'seamless_disable_sidebars' );
 	add_action( 'template_redirect', 'seamless_one_column' );
 
-	/** Hybrid Core 1.6 changes **/
-	add_filter( "{$prefix}_sidebar_defaults", 'seamless_sidebar_defaults' );
-	add_filter( 'cleaner_gallery_defaults',   'seamless_gallery_defaults' );
-	add_filter( 'the_content', 'seamless_aside_infinity', 9 );
 	/****************************/
 }
-
-/* === HYBRID CORE 1.6 CHANGES. === 
- *
- * The following changes are slated for Hybrid Core version 1.6 to make it easier for 
- * theme developers to build awesome HTML5 themes. The code will be removed once 1.6 
- * is released.
- */
-
-	/**
-	 * Content template.  This is an early version of what a content template function will look like
-	 * in future versions of Hybrid Core.
-	 *
-	 * @since  0.1.0
-	 * @access public
-	 * @return void
-	 */
-	function seamless_get_content_template() {
-
-		$templates = array();
-		$post_type = get_post_type();
-
-		if ( post_type_supports( $post_type, 'post-formats' ) ) {
-
-			$post_format = get_post_format() ? get_post_format() : 'standard';
-
-			$templates[] = "content-{$post_type}-{$post_format}.php";
-			$templates[] = "content-{$post_format}.php";
-		}
-
-		$templates[] = "content-{$post_type}.php";
-		$templates[] = 'content.php';
-
-		return locate_template( $templates, true, false );
-	}
-
-	/**
-	 * Sidebar parameter defaults.
-	 *
-	 * @since  0.1.0
-	 * @access public
-	 * @param  array  $defaults
-	 * @return array
-	 */
-	function seamless_sidebar_defaults( $defaults ) {
-
-		$defaults = array(
-			'before_widget' => '<section id="%1$s" class="widget %2$s widget-%2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h3 class="widget-title">',
-			'after_title'   => '</h3>'
-		);
-
-		return $defaults;
-	}
-
-	/**
-	 * Gallery defaults for the Cleaner Gallery extension.
-	 *
-	 * @since  0.1.0
-	 * @access public
-	 * @param  array  $defaults
-	 * @return array
-	 */
-	function seamless_gallery_defaults( $defaults ) {
-
-		$defaults['itemtag']    = 'figure';
-		$defaults['icontag']    = 'div';
-		$defaults['captiontag'] = 'figcaption';
-
-		return $defaults;
-	}
-
-	/**
-	 * Adds an infinity character "&#8734;" to the end of the post content on 'aside' posts.  This 
-	 * is from version 0.1.1 of the Post Format Tools extension.
-	 *
-	 * @since  0.1.0
-	 * @access public
-	 * @param  string $content The post content.
-	 * @return string $content
-	 */
-	function seamless_aside_infinity( $content ) {
-
-		if ( has_post_format( 'aside' ) && !is_singular() )
-			$content .= ' <a class="permalink" href="' . get_permalink() . '" title="' . the_title_attribute( array( 'echo' => false ) ) . '">&#8734;</a>';
-
-		return $content;
-	}
-
-/* End Hybrid Core 1.6 section. */
 
 /**
  * Registers scripts for the theme and enqueue those used sitewide.

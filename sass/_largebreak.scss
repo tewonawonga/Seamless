@@ -54,7 +54,7 @@ ol.comment-list ol.children {
     @include span-columns(3, 12);
     color: #333;
     font-size: 0.875em;
-    &:first-child {
+    &:last-child {
         margin-right: 0;
     }
 }
